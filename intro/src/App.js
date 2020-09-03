@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Routes from "./routes";
 import { Link, useHistory } from "react-router-dom";
