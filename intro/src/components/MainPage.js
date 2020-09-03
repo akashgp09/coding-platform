@@ -78,12 +78,6 @@ const MainPage = () => {
                     <div className="col-lg-2">
                         <hr />
                         <form>
-                            <label for="companies">Companies:</label>
-                            <select value="Done" id="companies" className="form-control form-inline">
-                                <option value="Amazon">Amazon</option>
-                                <option value="Facebook">Facebook</option>
-                            </select>
-                            <br />
                             <label for="tags">Topic Tags:</label>
                             <select value="Array" id="tags" className="form-control form-inline">
                                 <option value="Array">Array</option>
