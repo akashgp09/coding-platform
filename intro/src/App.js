@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Routes from "./routes";
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Routes from "./routes/routes";
 import { Link, useHistory } from "react-router-dom";
- 
-function App() {
 
+function App() {
   return (
     <>
-    <div className="App">
-      <Navbar />
-     <div className="container">
-        <Routes />
-     </div>
-    </div>
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <Routes />
+        </div>
+      </div>
     </>
   );
 }
