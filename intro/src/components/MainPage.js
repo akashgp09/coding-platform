@@ -1,102 +1,171 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { FaIgloo } from "react-icons/fa";
+import "./MainPage.css";
+const ReactMarkdown = require("react-markdown");
 
-const MainPage = () => {
-    return (
+export default class MainPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tag: `none`,
+      loading: `initial`,
+      language: `cpp`,
+      medium: `easy`,
+    };
+  }
+  tag = async (event) => {
+    // event.preventDefault();
+
+    await this.setState({ tag: event.target.value });
+    this.handleFilter();
+  };
+  medium = async (event) => {
+    // event.preventDefault();
+
+    await this.setState({ medium: event.target.value });
+    this.handleFilter();
+  };
+  language = async (event) => {
+    // event.preventDefault();
+    await this.setState({ language: event.target.value });
+    this.handleFilter();
+  };
+  componentDidMount() {
+    console.log("component");
+    this.handleFilter();
+  }
+  handleFilter = async () => {
+    try {
+      console.log("You are under try", this.state);
+      const response = await fetch(
+        `http://localhost:5000/question/:?language=${this.state.language}&tag=${this.state.tag}&medium=${this.state.medium}`
+      );
+
+      let jsonResponse = await response.json();
+      console.log(jsonResponse);
+      this.setState({ info: jsonResponse, loading: "loaded" });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  render() {
+    {
+      console.log(this.state, "Once");
+    }
+    if (this.state.loading == "initial") {
+      return <></>;
+    }
+    if (this.state.loading == "loaded") {
+      return (
         <>
-            <div className="container">
-                <br />
-                <div className="row">
-                    <div className="col-lg-10">
-                        <hr />
-                        <div className="row">
-                            <div className="col-sm-7">
-                                <form>
-                                    <input type="text" className="form-control" placeholder="Search For Titles" />
-                                </form>
-                            </div>
-                            <div className="col-sm-5">
-                                <form>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <select value="Easy" className="form-control form-inline">
-                                                <option value="Easy">Easy</option>
-                                                <option value="Medium">Medium</option>
-                                                <option value="Hard">Hard</option>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <select value="Array" className="form-control form-inline">
-                                                <option value="Array">Array</option>
-                                                <option value="Stack">Stack</option>
-                                                <option value="Linked List">Linked List</option>
-                                            </select>
-                                        </div>
-                                        <div class="col">
-                                            <select value="Done" className="form-control form-inline">
-                                                <option value="Done">Done</option>
-                                                <option value="ToDo">ToDo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <hr />
-                        <div className="box-element">
-                            <div className="cart-row">
-                                <div style={{ flex: 1 }}>#</div>
-                                <div style={{ flex: 3 }}><strong>Title</strong></div>
-                                <div style={{ flex: 1 }}><strong>Difficulty</strong></div>
-                            </div>
-                            <Link to='/compete/1'>
-                                <div className="cart-row">
-                                    <div style={{ flex: 1 }}>1</div>
-                                    <div style={{ flex: 3 }}>Add two Numbers</div>
-                                    <div style={{ flex: 1 }}><button className="btn btn-success btn-small">Easy</button></div>
-                                </div>
-                            </Link>
-                            <Link to='/compete/2'>
-                                <div className="cart-row">
-                                    <div style={{ flex: 1 }}>2</div>
-                                    <div style={{ flex: 3 }}>Multiply two Numbers</div>
-                                    <div style={{ flex: 1 }}><button className="btn btn-warning btn-small">Medium</button></div>
-                                </div>
-                            </Link>
-                            <Link to='/compete/3'>
-                                <div className="cart-row">
-                                    <div style={{ flex: 1 }}>3</div>
-                                    <div style={{ flex: 3 }}>Divide two Numbers</div>
-                                    <div style={{ flex: 1 }}><button className="btn btn-danger btn-small">Difficult</button></div>
-                                </div>
-                            </Link>
-                        </div>
-                        <hr />
+          <div className="container">
+            <br />
+            <div className="row">
+              <div className="col-lg-10 ">
+                <hr />
+                <Link to="/add">
+                  <a href="" className="btn btn-info  mx-2">
+                    Add Questions
+                  </a>
+                </Link>
+                {this.state.info.map((question) => {
+                  return (
+                    <>
+                      <Link
+                        to={{
+                          pathname: "/codingpage",
+                          query: {
+                            instruction: question.instruction,
+                            solution: question.solution,
+                          },
+                        }}
+                        className="card-link"
+                        instruction={question.instruction}
+                      >
+                        <div className="card mt-2 container col-8 ">
+                          <div className="card-body px-1 py-1 ">
+                            <h4 className="card-title">
+                              <ReactMarkdown source={question.title} />
+                            </h4>
 
-                    </div>
+                            <div className="card-text text-secondary">
+                              <ReactMarkdown source={question.description} />
+                            </div>
 
-                    <div className="col-lg-2">
-                        <hr />
-                        <form>
-                            <label for="tags">Topic Tags:</label>
-                            <select value="Array" id="tags" className="form-control form-inline">
-                                <option value="Array">Array</option>
-                                <option value="Stack">Stack</option>
-                                <option value="Linked List">Linked List</option>
-                            </select>
-                            <br />
-                            <label for="difficulty">Difficulty:</label>
-                            <select value="Easy" id="difficulty" className="form-control form-inline">
-                                <option value="Easy">Easy</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Hard">Hard</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
+                            <a
+                              href=""
+                              className="btn btn-primary mx-2 float-right py-1"
+                            >
+                              {question.tag}
+                            </a>
+
+                            <form
+                              action=""
+                              method="POST"
+                              className="d-inline  mx-2"
+                            >
+                              <button
+                                type="submit"
+                                className="btn btn-danger float-right py-1"
+                              >
+                                {question.medium}
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </Link>
+                    </>
+                  );
+                })}
+              </div>
+
+              <div className="col-lg-2">
+                <hr />
+                <form>
+                  <label for="tags">Language:</label>
+                  <select
+                    value={this.state.language}
+                    onChange={this.language}
+                    id="tags"
+                    className="form-control form-inline mb-2"
+                  >
+                    <option value="cpp">C++</option>
+                    <option value="c">C</option>
+                    <option value="java">Java</option>
+                    <option value="python">Python</option>
+                  </select>
+                  <label for="tags">Topic Tags:</label>
+                  <select
+                    value={this.state.tag}
+                    onChange={this.tag}
+                    id="tags"
+                    className="form-control form-inline"
+                  >
+                    <option value="array">Array</option>
+                    <option value="string">string</option>
+                    <option value="algorithms">Algorithms</option>
+                    <option value="none">None</option>
+                  </select>
+                  <br />
+                  <label for="difficulty">Difficulty:</label>
+                  <select
+                    value={this.state.medium}
+                    onChange={this.medium}
+                    id="difficulty"
+                    className="form-control form-inline"
+                  >
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                  </select>
+                </form>
+              </div>
             </div>
+          </div>
         </>
-    );
+      );
+    }
+  }
 }
-
-export default MainPage;

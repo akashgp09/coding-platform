@@ -1,5 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+
 import "./routes.css";
 //components
 import Main from "../components/Main";
@@ -8,7 +9,10 @@ import Login from "../components/Login/Login";
 import Signup from "../components/Signup/Signup";
 import MainPage from "../components/MainPage";
 import ProblemPage from "../components/ProblemPage";
-
+import Form from "../components/AddQuestion/Form";
+import Codingpage from "../components/Codingpage//Codingpage";
+import Instructions from "../components/Codingpage/Instructions/Instructions";
+import Solution from "../components/Codingpage/Solution/Solution";
 const Routes = () => (
   <>
     <Switch>
@@ -16,6 +20,12 @@ const Routes = () => (
       <Route exact path="/thanks/:name" component={Thanks} />
       <Route exact path="/compete" component={MainPage} />
       <Route exact path="/compete/:name" component={ProblemPage} />
+      <Route exact path="/add" component={Form} />
+
+      <Route exact path="/codingpage" component={Codingpage} />
+
+      {/* <Route exact path="/codingpage/instruction" component={Instructions} />
+      <Route exact path="/codingpage/solution" component={Solution} /> */}
       <div className="auth-wrapper mt-5">
         <div>
           <img
