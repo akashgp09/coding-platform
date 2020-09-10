@@ -1,0 +1,44 @@
+/* .source {
+  height: 500px;
+  width: 900px;
+} */
+.language {
+  width: 150px !important;
+}
+.language {
+  display: inline;
+}
+.heading {
+  font-size: 20px;
+}
+/* #output {
+    width: 500px;
+    font-size: 20px;
+  } */
+/* body {
+    background: #8fa8af;
+  } */
+#source {
+  width: 100% !important;
+  background: #cccccc52;
+  height: 40vh;
+  font-size: 15px;
+  resize: vertical;
+}
+#input {
+  background: #cccccc52;
+  width: 45.6% !important;
+  height: 14vh;
+  resize: vertical;
+  font-size: 17px;
+}
+#output {
+  background: #cccccc52;
+  width: 100%;
+  height: 40vh;
+  /* position: fixed; */
+  top: 7.6%;
+  font-size: 18px;
+  right: 0;
+  resize: none;
+}
