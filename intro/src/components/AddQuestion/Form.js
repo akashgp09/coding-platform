@@ -11,6 +11,7 @@ export default class Form extends Component {
       language: `cpp`,
       medium: `easy`,
       solution: ``,
+      testCases: ``,
     };
   }
   tag = (event) => {
@@ -35,6 +36,9 @@ export default class Form extends Component {
   title = (event) => {
     this.setState({ title: event.target.value });
   };
+  testCases = (event) => {
+    this.setState({ testCases: event.target.value });
+  };
 
   submit = async (e) => {
     e.preventDefault();
@@ -55,6 +59,7 @@ export default class Form extends Component {
           title: this.state.title,
           medium: this.state.medium,
           instruction: this.state.instruction,
+          testCases: this.state.testCases,
         }),
       });
       console.log(await response.json());
@@ -150,6 +155,16 @@ export default class Form extends Component {
                 name="solution"
                 id="solution"
                 onChange={this.solution}
+                className="form-control"
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label for="solution">Test Cases</label>
+              <textarea
+                required
+                name="solution"
+                id="solution"
+                onChange={this.testCases}
                 className="form-control"
               ></textarea>
             </div>

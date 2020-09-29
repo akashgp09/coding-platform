@@ -45,6 +45,7 @@ router.post("/add", async (req, res) => {
     instruction: req.body.instruction,
     medium: req.body.medium,
     solution: req.body.solution,
+    testCases: JSON.parse(req.body.testCases),
   });
 
   try {
