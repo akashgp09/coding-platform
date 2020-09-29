@@ -34,6 +34,10 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  testCases: {
+    type: Array,
+    required: true,
+  },
   //   slug: {
   //     type: String,
   //     required: true,

@@ -15,7 +15,7 @@ mongoose.connect(
   "mongodb+srv://webdev:webdevteam1@cluster0.jv8em.mongodb.net/content?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
-    poolSize: 4,
+
     useUnifiedTopology: true,
     useCreateIndex: true,
   }
