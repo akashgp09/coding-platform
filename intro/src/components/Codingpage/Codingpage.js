@@ -18,12 +18,18 @@ export default class Codingpage extends Component {
   render() {
     let instruction = this.props.location.query.instruction;
     let solution = this.props.location.query.solution;
+
+    let testCases = this.props.location.query.testCases;
+    {
+      console.log(testCases, "XXXXXXXXX");
+    }
     let count = 0;
 
     return (
       <>
         <Router>
           {console.log(instruction)}
+
           <div className="container">
             <nav className="navbar-light bg-light" id="sec-navbar">
               <a className="navbar-brand mx-5" href="">
@@ -33,6 +39,7 @@ export default class Codingpage extends Component {
                     query: {
                       instruction: instruction,
                       solution: solution,
+                      testCases: testCases,
                     },
                   }}
                   onClick={this.handleClick}
@@ -46,11 +53,11 @@ export default class Codingpage extends Component {
                 <Link
                   to={{
                     pathname: "/codingpage/code",
-                    // query: {
-                    //   instruction: instruction,
-                    //   solution: solution,
-                    //   code:code,
-                    // },
+                    query: {
+                      instruction: instruction,
+                      solution: solution,
+                      testCases: testCases,
+                    },
                   }}
                   onClick={this.handleClick}
                 >
@@ -64,6 +71,7 @@ export default class Codingpage extends Component {
                     query: {
                       instruction: instruction,
                       solution: solution,
+                      testCases: testCases,
                     },
                   }}
                   onClick={this.handleClick}

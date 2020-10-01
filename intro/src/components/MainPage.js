@@ -79,6 +79,7 @@ export default class MainPage extends Component {
                           query: {
                             instruction: question.instruction,
                             solution: question.solution,
+                            testCases: question.testCases,
                           },
                         }}
                         className="card-link"
