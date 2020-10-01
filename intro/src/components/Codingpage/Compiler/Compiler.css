@@ -21,7 +21,7 @@
 #source {
   width: 100% !important;
   background: #cccccc52;
-  height: 40vh;
+  height: 55vh;
   font-size: 15px;
   resize: vertical;
 }
@@ -32,13 +32,73 @@
   resize: vertical;
   font-size: 17px;
 }
-#output {
+/* #output {
   background: #cccccc52;
   width: 100%;
   height: 40vh;
-  /* position: fixed; */
+  
   top: 7.6%;
   font-size: 18px;
   right: 0;
   resize: none;
+} */
+.output-section {
+  padding-left: 5px;
+  overflow-y: scroll;
+  background: #cccccc52;
+  width: 90vh;
+
+  height: 70vh;
+  /* position: fixed; */
+  top: 7.6%;
+  font-size: 18px;
+  right: 0;
+
+  white-space: pre-wrap;
+  white-space: pre-line;
+}
+
+.language {
+  width: 150px;
+}
+.stdin {
+  /* background-color: rgba(240, 248, 255, 0.747); */
+
+  margin-bottom: 5px;
+}
+.expected-output {
+  /* background-color: rgba(240, 248, 255, 0.747); */
+
+  margin-bottom: 5px;
+}
+.your-output {
+  /* background-color: rgba(240, 248, 255, 0.747); */
+
+  margin-bottom: 5px;
+}
+.passed-test {
+  color: green;
+  font-size: x-large;
+
+  font-weight: 400;
+  /* background-color: rgba(240, 248, 255, 0.747);
+  font-weight: 600;
+
+  margin-bottom: 5px; */
+}
+.execution-info {
+  /* background-color: rgba(240, 248, 255, 0.747); */
+  /* font-weight: 600; */
+  margin-bottom: 5px;
+}
+.failed-test {
+  color: red;
+  font-size: x-large;
+  font-weight: 400;
+}
+.alignment {
+  padding-left: 5px;
+}
+.numbers {
+  color: crimson;
 }
