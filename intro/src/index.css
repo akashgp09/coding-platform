@@ -12,9 +12,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   padding-bottom: 320px;
+  background: #ecf4ff ;
   background-image: url("./Group 3.svg");
   background-position: bottom;
   background-repeat: no-repeat;
+}
+
+.create{
+  background-image: url("./hero.svg");
+  background-size: 64%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-position-y: 5rem;
+  background-position-x: 550px;
 }
 
 body * {

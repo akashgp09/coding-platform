@@ -40,14 +40,14 @@ function Nabvar() {
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                <Link to="/" className="nav-links dec" onClick={closeMobileMenu}>
                   Home
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
                   to="/compete"
-                  className="nav-links"
+                  className="nav-links dec"
                   onClick={closeMobileMenu}
                 >
                   Compete/Practice
@@ -55,7 +55,7 @@ function Nabvar() {
               </li>
               <li className="nav-btn">
                 {button ? (
-                  <Link to="/user/signup" className="btn-link">
+                  <Link to="/user/signup" className="btn-link dec">
                     <Button buttonStyle="btn--outline">REGISTER</Button>
                   </Link>
                 ) : (
@@ -72,13 +72,13 @@ function Nabvar() {
               </li>
               <li className="nav-btn">
                 {button ? (
-                  <Link to="/user/login" className="btn-link">
+                  <Link to="/user/login" className="btn-link dec">
                     <Button buttonStyle="btn--outline">LOGIN</Button>
                   </Link>
                 ) : (
                   <Link
                     to="/user/login"
-                    className="btn-link"
+                    className="btn-link dec"
                     onClick={closeMobileMenu}
                   >
                     <Button buttonStyle="btn--outline" buttonSize="btn--mobile">

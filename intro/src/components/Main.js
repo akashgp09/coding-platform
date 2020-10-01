@@ -18,12 +18,10 @@ const Main = () => {
 
     }
 
-
-
     return(
         <React.Fragment>
-            <header>
-                <img src={hero} />
+            <header className="create">
+                {/* <img src={hero} /> */}
                 <div>
                     <h1>Code &amp; Develop <br/> for KIITians.</h1>
                     <p>Developer Student Clubs is a program that recognizes and supports university students who are excited about growing developer communities that cultivate learning, sharing, and collaboration.</p>

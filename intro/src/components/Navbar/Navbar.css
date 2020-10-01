@@ -55,6 +55,7 @@
 }
 
 .nav-item:hover {
+  text-decoration: none;
   border-bottom: 2px solid #f00946;
 }
 
@@ -108,6 +109,7 @@
   }
 
   .nav-links:hover {
+    text-decoration: none;
     color: #f00946;
     transform: scale(1.2);
     transition: all 0.3s ease;
@@ -157,4 +159,8 @@
   justify-content: center;
 
   text-align: left;
+}
+
+.dec{
+  text-decoration: none;
 }
