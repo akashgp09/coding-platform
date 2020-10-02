@@ -43,9 +43,11 @@
   resize: none;
 } */
 .output-section {
-  padding-left: 5px;
+  color: aliceblue;
+  padding-left: 8px;
   overflow-y: scroll;
-  background: #cccccc52;
+  /* background: #cccccc52; */
+  background-color: #002240;
   width: 90vh;
 
   height: 70vh;
@@ -53,7 +55,7 @@
   top: 7.6%;
   font-size: 18px;
   right: 0;
-
+  border-radius: 8px;
   white-space: pre-wrap;
   white-space: pre-line;
 }
@@ -96,9 +98,23 @@
   font-size: x-large;
   font-weight: 400;
 }
-.alignment {
+/* .alignment {
   padding-left: 5px;
-}
+} */
 .numbers {
   color: crimson;
+}
+.ide-size {
+  height: 60vh;
+  width: 100% !important;
+  margin-bottom: 5px;
+}
+.CodeMirror-gutters {
+  left: 0 !important;
+}
+/* .CodeMirror-linenumbers {
+  width: -29px !important;
+} */
+.CodeMirror-gutter-wrapper {
+  left: -29px !important;
 }
