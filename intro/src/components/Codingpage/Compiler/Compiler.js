@@ -170,13 +170,23 @@
 //   }
 // }
 import React, { Component } from "react";
-
+import CodeMirror from "@uiw/react-codemirror";
+import "codemirror/addon/display/autorefresh";
+import "codemirror/addon/comment/comment";
+import "codemirror/addon/edit/matchbrackets";
+import "codemirror/keymap/sublime";
+import "codemirror/theme/monokai.css";
+import "codemirror/theme/cobalt.css";
+import "codemirror/theme/material-ocean.css";
+import "codemirror/theme/neo.css";
+import "codemirror/theme/paraiso-light.css";
 import "./Compiler.css";
 
 // let sampleInput = `Input(stdin)\n`;
 // let sampleOutput = `Expected Output\n`;
 // let actualOutput = `Your Output\n`;
 let checkErr;
+let code = "";
 export default class Compiler extends Component {
   constructor(props) {
     super(props);
@@ -185,6 +195,8 @@ export default class Compiler extends Component {
       output: ``,
       language_id: 2,
       user_input: ``,
+      theme: `monokai`,
+      code: "Const=",
     };
   }
 
@@ -197,11 +209,18 @@ export default class Compiler extends Component {
     event.preventDefault();
     this.setState({ user_input: event.target.value });
   };
+
   language = (event) => {
     event.preventDefault();
     this.setState({ language_id: event.target.value });
   };
-
+  theme = (event) => {
+    event.preventDefault();
+    this.setState({ theme: event.target.value });
+  };
+  updateCode = (editor, value) => {
+    this.setState({ input: editor.getValue() });
+  };
   submit = async (e) => {
     e.preventDefault();
     // sample.forEach(async (sample) => {
@@ -352,7 +371,7 @@ export default class Compiler extends Component {
       <>
         <div className="row container-fluid">
           <div className="col-6 ml-4 ">
-            <label for="solution ">
+            {/* <label for="solution ">
               <span className="badge badge-info heading mt-2 ">
                 <i className="fas fa-code fa-fw fa-lg"></i> Code Here
               </span>
@@ -363,7 +382,34 @@ export default class Compiler extends Component {
               id="source"
               onChange={this.input}
               className=" source"
-            ></textarea>
+            ></textarea> */}
+            <label for="tags" className="mr-1">
+              <b className="heading">Theme</b>
+            </label>
+            <select
+              value={this.state.theme}
+              onChange={this.theme}
+              id="tags"
+              className="form-control form-inline mb-2 language"
+            >
+              <option value="monokai">monokai</option>
+              <option value="cobalt">cobalt</option>
+              <option value="material-ocean">material-ocean</option>
+              <option value="neo">neo</option>
+              <option value="paraiso-light">paraiso-light</option>
+            </select>
+            <div className="ide-size">
+              <CodeMirror
+                value={code}
+                options={{
+                  theme: this.state.theme,
+                  tabSize: 2,
+                  keyMap: "sublime",
+                  mode: "C",
+                }}
+                onChange={this.updateCode}
+              />
+            </div>
 
             <button
               type="submit"
