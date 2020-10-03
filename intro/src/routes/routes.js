@@ -22,7 +22,7 @@ const Routes = () => (
       <Route exact path="/compete/:name" component={ProblemPage} />
       <Route exact path="/add" component={Form} />
 
-      <Route exact path="/codingpage" component={Codingpage} />
+      <Route exact path="/codingpage/:id" component={Codingpage} />
 
       {/* <Route exact path="/codingpage/instruction" component={Instructions} />
       <Route exact path="/codingpage/solution" component={Solution} /> */}

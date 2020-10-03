@@ -1,108 +1,88 @@
 import React, { Component } from "react";
 import Instructions from "./Instructions/Instructions";
-import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./Codingpage.css";
 import Solution from "./Solution/Solution";
 import Compiler from "./Compiler/Compiler";
+
 export default class Codingpage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 0,
+      question: undefined,
+      component: "instructions",
     };
   }
   handleClick = () => {
     this.setState({ count: 1 });
   };
-  render() {
-    let instruction = this.props.location.query.instruction;
-    let solution = this.props.location.query.solution;
 
-    let testCases = this.props.location.query.testCases;
-    {
-      console.log(testCases, "XXXXXXXXX");
+  componentDidMount() {
+    this.renderMyData();
+  }
+  handleInstructions = (e) => {
+    e.preventDefault();
+    this.setState({ component: "instructions" });
+  };
+  handleCode = (e) => {
+    e.preventDefault();
+    this.setState({ component: "code" });
+  };
+  handleSolutions = (e) => {
+    e.preventDefault();
+    this.setState({ component: "solutions" });
+  };
+  renderMyData = async () => {
+    const { match } = this.props;
+    console.log(match.params.id);
+    try {
+      const response = await fetch(
+        `http://localhost:5000/question/id/:?id=${match.params.id}`
+      );
+
+      let jsonResponse = await response.json();
+      console.log(jsonResponse);
+      this.setState({ question: jsonResponse });
+    } catch (err) {
+      console.log(err);
     }
+  };
+
+  render() {
     let count = 0;
+    if (this.state.question) {
+      let instruction = this.state.question[0].instruction;
 
-    return (
-      <>
-        <Router>
-          {console.log(instruction)}
+      let solution = this.state.question[0].solution;
 
+      let testCases = this.state.question[0].testCases;
+      let id = this.state.question[0]._id;
+      return (
+        <>
           <div className="container">
             <nav className="navbar-light bg-light" id="sec-navbar">
-              <a className="navbar-brand mx-5" href="">
-                <Link
-                  to={{
-                    pathname: "/codingpage/instruction",
-                    query: {
-                      instruction: instruction,
-                      solution: solution,
-                      testCases: testCases,
-                    },
-                  }}
-                  onClick={this.handleClick}
-                >
-                  {/* <a className="navbar-brand mx-5" href="#"> */}
-                  Instructions
-                  {/* </a> */}
-                </Link>
+              <a href="" onClick={this.handleInstructions}>
+                Instructions
               </a>
-              <a className="navbar-brand mx-5" href="#">
-                <Link
-                  to={{
-                    pathname: "/codingpage/code",
-                    query: {
-                      instruction: instruction,
-                      solution: solution,
-                      testCases: testCases,
-                    },
-                  }}
-                  onClick={this.handleClick}
-                >
-                  Code
-                </Link>
+              <a href="" onClick={this.handleCode}>
+                Code
               </a>
-              <a className="navbar-brand mx-5" href="">
-                <Link
-                  to={{
-                    pathname: "/codingpage/solution",
-                    query: {
-                      instruction: instruction,
-                      solution: solution,
-                      testCases: testCases,
-                    },
-                  }}
-                  onClick={this.handleClick}
-                >
-                  {/* <a className="navbar-brand mx-5" href="#"> */}
-                  Solutions
-                  {/* </a> */}
-                </Link>
+              <a href="" onClick={this.handleSolutions}>
+                Solutions
               </a>
             </nav>
           </div>
-          {console.log(count)}
-
-          {this.state.count == 0 ? (
+          {this.state.component == "instructions" ? (
             <Instructions instruction={instruction} />
+          ) : this.state.component == "solutions" ? (
+            <Solution solution={solution} />
           ) : (
-            ""
+            <Compiler testCases={testCases} />
           )}
-
-          <Switch>
-            {/* <Route exact path="/codingpage" component={Codingpage} /> */}
-            <Route
-              exact
-              path="/codingpage/instruction"
-              component={Instructions}
-            />
-            <Route exact path="/codingpage/solution" component={Solution} />
-            <Route exact path="/codingpage/code" component={Compiler} />
-          </Switch>
-        </Router>
-      </>
-    );
+        </>
+      );
+    } else {
+      return <></>;
+    }
   }
 }

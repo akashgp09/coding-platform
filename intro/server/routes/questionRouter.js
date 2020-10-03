@@ -1,8 +1,17 @@
 const express = require("express");
 const Question = require("../model/question");
 const router = express.Router();
+
+router.get("/id/:id", async (req, res) => {
+  console.log(req.query);
+  let questions = await Question.find({ _id: req.query.id });
+  if (questions) {
+    return res.status(200).json(questions);
+  }
+  res.send({ err: "No Questions Found" });
+});
+
 router.get("/:info", async (req, res) => {
-  console.log(req.query, "Query");
   if (req.query.tag == "none") {
     let questions = await Question.find({
       $and: [
@@ -12,7 +21,7 @@ router.get("/:info", async (req, res) => {
         { medium: req.query.medium },
       ],
     });
-    console.log(questions, "Hello World");
+
     if (questions) {
       return res.status(200).json(questions);
     }
@@ -28,7 +37,7 @@ router.get("/:info", async (req, res) => {
         { tag: req.query.tag },
       ],
     });
-    console.log(questions, "Hello World");
+
     if (questions) {
       return res.status(200).json(questions);
     }
