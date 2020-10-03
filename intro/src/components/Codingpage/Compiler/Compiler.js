@@ -230,7 +230,7 @@ export default class Compiler extends Component {
     let actualOutput = `<b>Your Output</b><br />`;
     let testPassed = 0;
     checkErr = false;
-    let testCases = this.props.location.query.testCases;
+    let testCases = this.props.testCases;
     for (let i = 0; i < testCases.length; i++) {
       // let sampleInput = `Input(stdin)<br />`;
 

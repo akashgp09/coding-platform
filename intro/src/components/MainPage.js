@@ -32,12 +32,10 @@ export default class MainPage extends Component {
     this.handleFilter();
   };
   componentDidMount() {
-    console.log("component");
     this.handleFilter();
   }
   handleFilter = async () => {
     try {
-      console.log("You are under try", this.state);
       const response = await fetch(
         `http://localhost:5000/question/:?language=${this.state.language}&tag=${this.state.tag}&medium=${this.state.medium}`
       );
@@ -75,11 +73,12 @@ export default class MainPage extends Component {
                     <>
                       <Link
                         to={{
-                          pathname: "/codingpage",
+                          pathname: `/codingpage/${question._id}`,
                           query: {
                             instruction: question.instruction,
                             solution: question.solution,
                             testCases: question.testCases,
+                            id: question._id,
                           },
                         }}
                         className="card-link"
