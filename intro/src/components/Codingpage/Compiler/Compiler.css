@@ -31,6 +31,8 @@
   height: 14vh;
   resize: vertical;
   font-size: 17px;
+  margin-left: 45px;
+  border-radius: 6px;
 }
 /* #output {
   background: #cccccc52;
@@ -58,6 +60,9 @@
   border-radius: 8px;
   white-space: pre-wrap;
   white-space: pre-line;
+}
+.custom-checkbox {
+  padding-left: 45px;
 }
 
 .language {

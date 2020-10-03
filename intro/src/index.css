@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 html {
-  background: rgb(236, 244, 255) ;
+  background: rgb(236, 244, 255);
 }
 
 body {
@@ -12,13 +12,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   padding-bottom: 320px;
-  background: #ecf4ff ;
-  background-image: url("./Group 3.svg");
+  background: #ecf4ff;
+  /* background-image: url("./Group 3.svg"); */
   background-position: bottom;
   background-repeat: no-repeat;
 }
 
-.create{
+.create {
   background-image: url("./hero.svg");
   background-size: 64%;
   background-position: top;
@@ -31,14 +31,10 @@ body * {
   transition: all 500ms ease-in-out;
 }
 
-
 .container {
   width: 80%;
   margin: 0 auto;
- 
 }
-
-
 
 nav {
   display: flex;
@@ -66,21 +62,17 @@ nav ul li {
   margin-left: 10px;
 }
 
-nav ul:first-of-type li:first-of-type{
+nav ul:first-of-type li:first-of-type {
   font-weight: bold;
   font-size: 1.1rem;
 }
-
-
 
 header {
   position: relative;
 }
 
-
 header div {
   padding-top: 150px;
- 
 }
 
 header div h1 {
@@ -113,14 +105,16 @@ header div a {
   text-decoration: none;
 }
 
-header div a, .newsletter input[type="submit"] {
+header div a,
+.newsletter input[type="submit"] {
   border: 1px solid blue;
   color: blue;
 }
 
-header div a:hover, .newsletter input[type="submit"]:hover {
+header div a:hover,
+.newsletter input[type="submit"]:hover {
   background: blue;
-  color: #eee;  
+  color: #eee;
 }
 
 main {
@@ -130,15 +124,12 @@ main {
 h2 {
   font-size: 45px;
   margin-bottom: 120px;
-  
 }
 
 h3 {
   font-size: 30px;
   color: rgb(12, 0, 116);
 }
-
-
 
 .services {
   margin-top: 300px;
@@ -153,35 +144,35 @@ h3 {
   position: relative;
 }
 
-
 .services-card {
   width: 40%;
   height: 400px;
   background: #222;
-  display: inline-block;  
+  display: inline-block;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 52px -19px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 52px -19px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 52px -19px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 52px -19px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 52px -19px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 52px -19px rgba(0, 0, 0, 0.75);
 }
 
-.service-description{
+.service-description {
   width: 40%;
-
 }
 
 .service-one {
-  background: url("https://images.unsplash.com/photo-1581094648468-20624f9c771a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80")center;
+  background: url("https://images.unsplash.com/photo-1581094648468-20624f9c771a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80")
+    center;
 }
 
 .service-two {
-  background: url("https://images.unsplash.com/photo-1581091870619-835cee86e759?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80")center;
+  background: url("https://images.unsplash.com/photo-1581091870619-835cee86e759?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80")
+    center;
 }
 
 .service-three {
-  background: url("https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80")center;
+  background: url("https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80")
+    center;
 }
-
 
 .newsletter {
   width: 80%;
@@ -196,7 +187,6 @@ h3 {
   margin: 0px;
   background: none;
   font-size: 20px;
-
 }
 
 .newsletter input[type="email"] {
@@ -205,19 +195,18 @@ h3 {
   border: 1px solid #222;
 
   margin-right: 20px;
-
 }
 
-.newsletter input[type="submit"]{
+.newsletter input[type="submit"] {
   width: 170px;
   color: blue;
- 
+
   cursor: pointer;
 }
 
 .thanks {
   font-size: 30px;
-  width:70%;
+  width: 70%;
   margin: 120px auto;
   text-align: center;
 }
@@ -226,7 +215,6 @@ h3 {
   width: 60%;
   margin: 0 auto;
   max-width: 900px;
- 
 }
 
 .contact * {
@@ -235,7 +223,8 @@ h3 {
   display: block;
   border-radius: 10px;
 }
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
   text-indent: 30px;
   border: 1px solid #eee;
 }
@@ -261,7 +250,7 @@ h3 {
   color: blue;
 }
 
-@media screen and (max-width: 1600px){
+@media screen and (max-width: 1600px) {
   header img {
     width: 1230px;
     right: -50%;
@@ -269,38 +258,35 @@ h3 {
   }
 }
 
-
-@media screen and (max-width: 1380px){
+@media screen and (max-width: 1380px) {
   header img {
     right: -66%;
     top: -20px;
   }
 
   header div {
-    padding-top: 100px;   
+    padding-top: 100px;
   }
   header div h1 {
     font-size: 55px;
   }
-  
+
   header div p {
     width: 400px;
   }
-
 }
 
-@media screen and (max-width: 1150px){
+@media screen and (max-width: 1150px) {
   header img {
     width: 900px;
     right: -50%;
     top: 320px;
   }
- 
-  
+
   header div h1 {
     font-size: 55px;
   }
-  
+
   header div p {
     width: 400px;
   }
@@ -308,29 +294,28 @@ h3 {
   .service-container {
     display: block;
   }
-  
+
   .services-card {
     width: 100%;
     height: 400px;
   }
-  
-  .service-description{
+
+  .service-description {
     width: 100%;
-  
   }
- 
-  .service-one, .service-two, .service-three{
+
+  .service-one,
+  .service-two,
+  .service-three {
     background-size: 120% !important;
   }
 
   .contact input[type="submit"] {
     width: 40%;
   }
-  
 }
 
 @media screen and (max-width: 950px) {
-
   header img {
     width: 730px;
     right: -50%;
@@ -346,20 +331,17 @@ h3 {
     width: 100%;
     margin-right: 0px;
   }
-  
-  .newsletter input[type="submit"]{
+
+  .newsletter input[type="submit"] {
     margin-top: 40px;
-    
   }
 
   .contact {
     width: 90%;
   }
-  
+
   .contact input[type="submit"] {
-   
     width: 100%;
     margin: 40px 0px;
   }
-  
 }
