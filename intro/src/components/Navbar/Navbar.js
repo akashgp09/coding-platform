@@ -40,7 +40,11 @@ function Nabvar() {
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link to="/" className="nav-links dec" onClick={closeMobileMenu}>
+                <Link
+                  to="/"
+                  className="nav-links dec"
+                  onClick={closeMobileMenu}
+                >
                   Home
                 </Link>
               </li>

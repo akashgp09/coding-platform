@@ -1,25 +1,21 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const user = require("./routes/user"); //new addition
-const InitiateMongoServer = require("./config/db");
 const cors = require("cors");
 const path = require("path");
 
 const mongoose = require("mongoose");
-// const Question = require("./model/question");
+
 const questionRouter = require("./routes/questionRouter");
-// Initiate Mongo Server
-// InitiateMongoServer();
 
-mongoose.connect(
-  "mongodb+srv://webdev:webdevteam1@cluster0.jv8em.mongodb.net/content?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
+require("dotenv").config();
 
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  }
-);
+mongoose.connect(process.env.REACT_APP_DB_MONGO_URI, {
+  useNewUrlParser: true,
+
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 
 const app = express();
 
