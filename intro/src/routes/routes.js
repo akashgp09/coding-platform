@@ -11,8 +11,7 @@ import MainPage from "../components/MainPage";
 import ProblemPage from "../components/ProblemPage";
 import Form from "../components/AddQuestion/Form";
 import Codingpage from "../components/Codingpage//Codingpage";
-import Instructions from "../components/Codingpage/Instructions/Instructions";
-import Solution from "../components/Codingpage/Solution/Solution";
+
 const Routes = () => (
   <>
     <Switch>
@@ -24,8 +23,6 @@ const Routes = () => (
 
       <Route exact path="/codingpage/:id" component={Codingpage} />
 
-      {/* <Route exact path="/codingpage/instruction" component={Instructions} />
-      <Route exact path="/codingpage/solution" component={Solution} /> */}
       <div className="auth-wrapper mt-5">
         <div>
           <img
