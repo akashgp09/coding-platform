@@ -16,7 +16,7 @@ const passport = require("passport");
 const passportSetup = require("./config/passport-setup");
 const session = require("express-session");
 const authRoutes = require("./routes/auth-routes");
-
+const User = require("./model/user-model");
 const keys = require("./config/keys");
 
 const cookieParser = require("cookie-parser"); // parse cookie header
@@ -96,7 +96,14 @@ app.get("/", authCheck, (req, res) => {
     cookies: req.cookies,
   });
 });
+app.get("/profile/:id", async (req, res) => {
+  let user = await User.find({ _id: req.query.id });
 
+  if (user) {
+    return res.status(200).json(user);
+  }
+  res.send({ err: "No User Found" });
+});
 app.listen(PORT, (req, res) => {
   console.log(`Server Started at PORT ${PORT}`);
 });
