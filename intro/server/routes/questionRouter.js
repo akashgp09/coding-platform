@@ -3,7 +3,6 @@ const Question = require("../model/question");
 const router = express.Router();
 
 router.get("/id/:id", async (req, res) => {
-  console.log(req.query);
   let questions = await Question.find({ _id: req.query.id });
   if (questions) {
     return res.status(200).json(questions);

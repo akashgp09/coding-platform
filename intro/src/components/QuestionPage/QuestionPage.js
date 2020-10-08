@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaIgloo } from "react-icons/fa";
-import "./MainPage.css";
+import "./QuestionPage.css";
 const ReactMarkdown = require("react-markdown");
 
 export default class MainPage extends Component {
@@ -36,12 +36,14 @@ export default class MainPage extends Component {
   }
   handleFilter = async () => {
     try {
+      console.log("Before Fetching,", this.state);
       const response = await fetch(
         `http://localhost:5000/question/:?language=${this.state.language}&tag=${this.state.tag}&medium=${this.state.medium}`
       );
 
       let jsonResponse = await response.json();
       console.log(jsonResponse);
+
       this.setState({ info: jsonResponse, loading: "loaded" });
     } catch (err) {
       console.log(err);
@@ -49,9 +51,6 @@ export default class MainPage extends Component {
   };
 
   render() {
-    {
-      console.log(this.state, "Once");
-    }
     if (this.state.loading == "initial") {
       return <></>;
     }

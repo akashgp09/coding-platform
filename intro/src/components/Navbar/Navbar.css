@@ -161,6 +161,22 @@
   text-align: left;
 }
 
-.dec{
+.dec {
+  text-decoration: none;
+}
+.modal-body {
+  padding: 1.5rem;
+}
+.profile-img {
+  border-radius: 50%;
+  width: 44px !important;
+  height: 44px !important;
+}
+.profile-text {
+  font-size: 25px;
+  text-decoration: none;
+  color: aliceblue;
+}
+.profile-text a {
   text-decoration: none;
 }

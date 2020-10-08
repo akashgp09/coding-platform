@@ -51,9 +51,6 @@ export default class Compiler extends Component {
   };
   handleCheckbox = () => {
     this.setState({ checkedBox: !this.state.checkedBox });
-    {
-      console.log(this.state);
-    }
   };
   submit = async (e) => {
     e.preventDefault();
@@ -173,14 +170,12 @@ export default class Compiler extends Component {
         // });
       }
       if (testPassed == testCases.length) {
-        console.log(testPassed, "if block");
         if (!checkErr) {
           let appenOutput = document.getElementById("output");
 
           appenOutput.innerHTML += `<span class="passed-test">All Tests Passed, Congratulations</span><div class="stdin">${sampleInput}</div><div class="expected-output">${sampleOutput}</div><div class="your-output">${actualOutput}</div>`;
         }
       } else {
-        console.log(testPassed, "else block");
         if (!checkErr) {
           let appenOutput = document.getElementById("output");
 
@@ -232,8 +227,7 @@ export default class Compiler extends Component {
             method: "GET",
             headers: {
               "x-rapidapi-host": "judge0-extra.p.rapidapi.com",
-              "x-rapidapi-key":
-                "62b1b5f315msh8d88d96b1858063p1af457jsn93a9017310e7",
+              "x-rapidapi-key": process.env.REACT_APP_JUDGE0_KEY,
               "content-type": "application/json",
             },
           });
@@ -265,7 +259,6 @@ export default class Compiler extends Component {
   render() {
     return (
       <>
-        {console.log(process.env)}
         <div className="row container-fluid">
           <div className="col-6 ml-4 ">
             <label for="tags" className="mr-1">
