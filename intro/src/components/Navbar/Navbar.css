@@ -169,8 +169,9 @@
 }
 .profile-img {
   border-radius: 50%;
-  width: 44px !important;
-  height: 44px !important;
+  width: 43px !important;
+  height: 43px !important;
+  border: 3.5px solid #fff;
 }
 .profile-text {
   font-size: 25px;

@@ -2,6 +2,7 @@
   border-radius: 50%;
   width: 200px;
   height: 200px;
+  border: 5px solid #1c2237;
 }
 
 .center-div {

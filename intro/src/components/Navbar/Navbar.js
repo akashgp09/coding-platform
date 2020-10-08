@@ -128,7 +128,7 @@ export default class Navbar extends Component {
                             <GoogleLoginButton
                               onClick={this._handleSignInClick}
                             />
-                            <GithubLoginButton />
+                            {/* <GithubLoginButton /> */}
                           </Modal.Body>
                         </Modal>
                       </>
@@ -150,7 +150,7 @@ export default class Navbar extends Component {
                         >
                           <Modal.Header closeButton>
                             <h3 className="px-5">
-                              Sign in To Get Started&nbsp;
+                              Sign in to Get Started&nbsp;
                               <img
                                 src="https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/2086/859e9317-d715-4a2b-b88e-61cdfd379039.png"
                                 width="50"
@@ -161,7 +161,7 @@ export default class Navbar extends Component {
                             <GoogleLoginButton
                               onClick={this._handleSignInClick}
                             />
-                            <GithubLoginButton />
+                            {/* <GithubLoginButton /> */}
                           </Modal.Body>
                         </Modal>
                       </>
@@ -206,7 +206,7 @@ export default class Navbar extends Component {
                   {authenticated ? (
                     <Link
                       to={{
-                        pathname: `/profile`,
+                        pathname: `/profile/${user._id}`,
                         query: {
                           user: user,
                         },

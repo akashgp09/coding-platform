@@ -8,6 +8,10 @@ const userSchema = new Schema({
   firstName: String,
   lastName: String,
   email: String,
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const User = mongoose.model("user", userSchema);

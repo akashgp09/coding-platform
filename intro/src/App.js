@@ -57,10 +57,7 @@ export default class App extends Component {
             handleNotAuthenticated={this._handleNotAuthenticated}
           />
           <div className="container">
-            <Routes
-              authenticated={authenticated}
-              handleNotAuthenticated={this._handleNotAuthenticated}
-            />
+            <Routes />
           </div>
         </div>
       </>
