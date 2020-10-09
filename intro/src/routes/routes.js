@@ -12,7 +12,6 @@ import Main from "../components/Main";
 import Thanks from "../components/Thanks";
 
 import QuestionPage from "../components/QuestionPage/QuestionPage";
-import ProblemPage from "../components/ProblemPage";
 import Form from "../components/AddQuestion/Form";
 import Codingpage from "../components/Codingpage//Codingpage";
 import Profile from "../components/UserProfile/profile";
@@ -25,9 +24,7 @@ export default class Routes extends Component {
           <Route exact path="/" component={Main} />
           <Route exact path="/thanks/:name" component={Thanks} />
           <Route exact path="/compete" component={QuestionPage} />
-          <Route exact path="/compete/:name" component={ProblemPage} />
           <Route exact path="/add" component={Form} />
-
           <Route exact path="/codingpage/:id" component={Codingpage} />
           <Route exact path="/profile/:id" component={Profile} />
         </Switch>
