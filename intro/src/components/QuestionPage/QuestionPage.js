@@ -8,27 +8,29 @@ export default class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tag: `none`,
+      tag: sessionStorage.getItem("tag") || `none`,
       loading: `initial`,
-      language: `cpp`,
-      medium: `easy`,
+      language: localStorage.getItem("language") || `cpp`,
+      medium: sessionStorage.getItem("medium") || `easy`,
     };
   }
   tag = async (event) => {
     // event.preventDefault();
-
+    sessionStorage.setItem("tag", event.target.value);
     await this.setState({ tag: event.target.value });
     this.handleFilter();
   };
   medium = async (event) => {
     // event.preventDefault();
-
+    sessionStorage.setItem("medium", event.target.value);
     await this.setState({ medium: event.target.value });
     this.handleFilter();
   };
   language = async (event) => {
     // event.preventDefault();
+    localStorage.setItem("language", event.target.value);
     await this.setState({ language: event.target.value });
+
     this.handleFilter();
   };
   componentDidMount() {

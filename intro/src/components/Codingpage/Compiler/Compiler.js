@@ -10,7 +10,6 @@ import "codemirror/theme/material-ocean.css";
 import "codemirror/theme/neo.css";
 import "codemirror/theme/paraiso-light.css";
 import "./Compiler.css";
-// import moduleName from '../../../../env';
 require("dotenv").config({ path: "../../../../env" });
 let checkErr;
 let code = "";
@@ -18,17 +17,15 @@ export default class Compiler extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ``,
+      input: sessionStorage.getItem("sourceCode") || "",
       output: ``,
-      language_id: 2,
+      language_id: localStorage.getItem("languageId") || 2,
       user_input: ``,
-      theme: `monokai`,
-      code: "Const=",
+      theme: localStorage.getItem("theme") || `material-ocean`,
       checkedBox: true,
     };
   }
 
-  // let sampleResult =""
   input = (event) => {
     event.preventDefault();
     this.setState({ input: event.target.value });
@@ -41,13 +38,16 @@ export default class Compiler extends Component {
   language = (event) => {
     event.preventDefault();
     this.setState({ language_id: event.target.value });
+    localStorage.setItem("languageId", event.target.value);
   };
   theme = (event) => {
     event.preventDefault();
     this.setState({ theme: event.target.value });
+    localStorage.setItem("theme", event.target.value);
   };
   updateCode = (editor, value) => {
     this.setState({ input: editor.getValue() });
+    sessionStorage.setItem("sourceCode", editor.getValue());
   };
   handleCheckbox = () => {
     this.setState({ checkedBox: !this.state.checkedBox });
@@ -279,7 +279,7 @@ export default class Compiler extends Component {
 
             <div className="ide-size">
               <CodeMirror
-                value={code}
+                value={this.state.input}
                 options={{
                   theme: this.state.theme,
                   tabSize: 2,
@@ -303,7 +303,7 @@ export default class Compiler extends Component {
             </label>
 
             <select
-              value={this.state.language}
+              value={this.state.language_id}
               onChange={this.language}
               id="tags"
               className="form-control form-inline mb-2 language"
