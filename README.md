@@ -39,7 +39,7 @@ It is written in HTML, CSS and JavaScript and is currently maintained on GitHub 
 You must have basic knowledge of a version control system like Git & Github. 
 
 ### Steps for installation
-Follow the instructions if you want to deploy via your local machine.
+
 1. Install dependencies for server
  
    `npm install`
@@ -65,7 +65,7 @@ Follow the instructions if you want to deploy via your local machine.
 
 
 # Key Features
-<img src="https://img.shields.io/badge/Heroku-deployed-blueviolet?logo=Heroku&style=flat"/> <img src="https://img.shields.io/badge/Google-OAuth%202.0-blue"/>
+<img src="https://img.shields.io/badge/BUILT%20FOR-CODERS%20%3C%2F%3E-red"/> <img src="https://img.shields.io/badge/Heroku-deployed-blueviolet?logo=Heroku&style=flat"/> <img src="https://img.shields.io/badge/Google-OAuth%202.0-blue"/>
 
 1. You can submit your code in C, C++, Java or Python. 👨‍💻
 2. You can add questions & testcases directly from the website into the database. :grey_question:
