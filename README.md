@@ -75,7 +75,11 @@ You must have basic knowledge of a version control system like Git & Github.
 6. The editor supports 5 different colours themes. :vertical_traffic_light:
 <!--- 6. Instructions, Code, Solution Section -->
 
+# Screenshots
 
+<img src="https://i.imgur.com/FzNixhA.png" width="900">
+<img src="https://i.imgur.com/nT7ETvh.png" width="900">
+<img src="https://i.imgur.com/PW7TAt0.png" width="900">
 
 # Demo
 [![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
