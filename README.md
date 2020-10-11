@@ -64,19 +64,22 @@ You must have basic knowledge of a version control system like Git & Github.
 
 
 # Key Features
+<img src="https://img.shields.io/badge/heroku-deployed-blueviolet"/> <img src="https://img.shields.io/badge/Google-OAuth%202.0-blue"/>
+
 1. You can submit your code in C, C++, Java or Python. 👨‍💻
 2. You can add questions & testcases directly from the website into the database. :grey_question:
 3. You can get questions using different filters of your choice(viz. languages, topic, difficulty level) :abcd:
 4. You can check your code against test cases (default or custom) :heavy_check_mark:
 5. After compilation of your code, you can view the execution time and memory usage. :clock6:
+6. The editor supports 5 different colours themes. :vertical_traffic_light:
 <!--- 6. Instructions, Code, Solution Section -->
 
 
-# Incomplete Features
-* Currently, you can compete/practice without registering or logging in.
 
 # Demo
-https://dsc-kode.herokuapp.com/
+**Check out the website here :  https://dsc-kode.herokuapp.com/**
+
+You can report your issues here :  https://github.com/RonitNayak25/DSC-CodingPortal/issues
 
 
 
