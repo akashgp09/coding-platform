@@ -1,6 +1,6 @@
 # DSC Competitive Programming Portal
 
-<img src="https://i.postimg.cc/hGSzWs2C/dsc.png" width="900">
+<img src="https://i.imgur.com/m9tnXMu.png" width="900">
 
 **A web portal which functions as an IDE (integrated development environment) with a primary focus on competitive coding.** 
 
