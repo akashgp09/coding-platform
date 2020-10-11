@@ -90,7 +90,7 @@ Mentor - [Junaid Rahim](https://github.com/junaidrahim)
 
 [Akash Gupta](https://github.com/akashgp09)
 
-Ronit Kumar Nayak
+[Ronit Kumar Nayak](https://github.com/RonitNayak25)
  
 [Anoushka Nandan](https://github.com/anoushkanandan)
 
