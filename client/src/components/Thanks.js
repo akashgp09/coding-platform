@@ -6,7 +6,7 @@ const Thanks = () => {
     const history = useHistory();
     const { name } = useParams();
 
-    console.log(history);
+ 
 
 
     return(

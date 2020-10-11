@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
+
 
 import "./profile.css";
 
@@ -11,24 +11,22 @@ export default class App extends Component {
     };
   }
 
-  componentDidMount() {
-    this.renderMyData();
-  }
-  componentWillMount() {
-    this.renderMyData();
-  }
+ 
+   componentWillMount=async()=> {
+     await this.renderMyData();
+   }
+ 
 
   renderMyData = async () => {
     const { match } = this.props;
-    console.log(match.params.id);
     try {
-      const response = await fetch(
+      const response = await fetch(process.env.NODE_ENV === 'production'?`${process.env.REACT_APP_WEBSITE_URL}/profile/:?id=${match.params.id}` :
         `http://localhost:5000/profile/:?id=${match.params.id}`
       );
 
       let jsonResponse = await response.json();
-      console.log(jsonResponse);
-      this.setState({ user: jsonResponse });
+   
+    await this.setState({ user: jsonResponse });
     } catch (err) {
       console.log(err);
     }

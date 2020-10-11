@@ -13,7 +13,7 @@ export default class App extends Component {
     };
   }
   componentDidMount() {
-    fetch("http://localhost:5000/auth/login/success", {
+    fetch(process.env.NODE_ENV === 'production'?`${process.env.REACT_APP_WEBSITE_URL}/auth/login/success` : "http://localhost:5000/auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
@@ -31,21 +31,21 @@ export default class App extends Component {
           authenticated: true,
           user: responseJson.user,
         });
-        console.log(this.state);
+     
       })
       .catch((error) => {
         this.setState({
           authenticated: false,
           error: "Failed to authenticate user",
         });
-        console.log(this.state);
+        
       });
   }
   _handleNotAuthenticated = () => {
     this.setState({ authenticated: false });
   };
   render() {
-    console.log(this.state);
+
     const { authenticated } = this.state;
     const { user } = this.state;
     return (

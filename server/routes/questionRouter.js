@@ -44,7 +44,7 @@ router.get("/:info", async (req, res) => {
   }
 });
 router.post("/add", async (req, res) => {
-  console.log(req.body);
+
   let question = new Question({
     title: req.body.title,
     language: req.body.language,

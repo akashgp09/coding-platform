@@ -34,14 +34,14 @@ export default class Codingpage extends Component {
   };
   renderMyData = async () => {
     const { match } = this.props;
-    console.log(match.params.id);
+ 
     try {
-      const response = await fetch(
-        `http://localhost:5000/question/id/:?id=${match.params.id}`
+      const response = await fetch(process.env.NODE_ENV === 'production'?
+        `${process.env.REACT_APP_WEBSITE_URL}/question/id/:?id=${match.params.id}`:`http://localhost:5000/question/id/:?id=${match.params.id}`
       );
 
       let jsonResponse = await response.json();
-      console.log(jsonResponse);
+    
       this.setState({ question: jsonResponse });
     } catch (err) {
       console.log(err);
