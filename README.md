@@ -77,6 +77,8 @@ You must have basic knowledge of a version control system like Git & Github.
 
 
 # Demo
+[![forthebadge](https://forthebadge.com/images/badges/check-it-out.svg)](https://forthebadge.com)
+
 **Check out the website here :  https://dsc-kode.herokuapp.com/**
 
 You can report your issues here :  https://github.com/RonitNayak25/DSC-CodingPortal/issues
