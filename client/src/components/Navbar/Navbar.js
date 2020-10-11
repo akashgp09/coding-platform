@@ -54,13 +54,13 @@ export default class Navbar extends Component {
   _handleSignInClick = () => {
     // Authenticate using via passport api in the backend
     // Open Google login page
-    window.open("http://localhost:5000/auth/google", "_self");
+    window.open(process.env.NODE_ENV === 'production'?`/auth/google`:"http://localhost:5000/auth/google", "_self");
   };
 
   _handleLogoutClick = () => {
     // Logout using Google passport api
     // Set authenticated state to false in the HomePage component
-    window.open("http://localhost:5000/auth/logout", "_self");
+    window.open(`/auth/logout`||"http://localhost:5000/auth/logout", "_self");
     this.props.handleNotAuthenticated();
   };
   render() {

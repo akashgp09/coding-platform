@@ -38,13 +38,14 @@ export default class MainPage extends Component {
   }
   handleFilter = async () => {
     try {
-      console.log("Before Fetching,", this.state);
-      const response = await fetch(
+      
+      const response = await fetch(process.env.NODE_ENV === 'production'?
+        `${process.env.REACT_APP_WEBSITE_URL}/question/:?language=${this.state.language}&tag=${this.state.tag}&medium=${this.state.medium}` :
         `http://localhost:5000/question/:?language=${this.state.language}&tag=${this.state.tag}&medium=${this.state.medium}`
       );
-
+  
       let jsonResponse = await response.json();
-      console.log(jsonResponse);
+    
 
       this.setState({ info: jsonResponse, loading: "loaded" });
     } catch (err) {

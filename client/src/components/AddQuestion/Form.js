@@ -42,9 +42,10 @@ export default class Form extends Component {
 
   submit = async (e) => {
     e.preventDefault();
-    console.log(this.state);
+
     try {
-      const response = await fetch("http://localhost:5000/question/add", {
+
+      const response = await fetch(process.env.NODE_ENV === 'production'?`${process.env.REACT_APP_WEBSITE_URL}/question/add`: "http://localhost:5000/question/add", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -62,15 +63,13 @@ export default class Form extends Component {
           testCases: this.state.testCases,
         }),
       });
-      console.log(await response.json());
+  
     } catch (err) {
       console.log(err);
     }
   };
   render() {
-    {
-      console.log(this.state);
-    }
+    
     return (
       <>
         <div className="row">

@@ -10,7 +10,7 @@ import "codemirror/theme/material-ocean.css";
 import "codemirror/theme/neo.css";
 import "codemirror/theme/paraiso-light.css";
 import "./Compiler.css";
-require("dotenv").config({ path: "../../../../env" });
+
 let checkErr;
 let code = "";
 export default class Compiler extends Component {
@@ -101,7 +101,7 @@ export default class Compiler extends Component {
         }
 
         const jsonResponse = await response.json();
-        console.log(jsonResponse);
+     
 
         let jsonGetSolution = {
           status: { description: "Queue" },
@@ -130,7 +130,7 @@ export default class Compiler extends Component {
             });
 
             jsonGetSolution = await getSolution.json();
-            console.log(jsonGetSolution);
+        
           }
         }
         if (jsonGetSolution.stdout) {

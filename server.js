@@ -1,57 +1,31 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const user = require("./routes/user"); //new addition
 const cors = require("cors");
 const path = require("path");
-
 const mongoose = require("mongoose");
-
-const questionRouter = require("./routes/questionRouter");
-
+const questionRouter = require("./server/routes/questionRouter");
 require("dotenv").config();
 const cookieSession = require("cookie-session");
-
-// const port = 4000;
 const passport = require("passport");
-const passportSetup = require("./config/passport-setup");
+const passportSetup = require("./server/config/passport-setup");
 const session = require("express-session");
-const authRoutes = require("./routes/auth-routes");
-const User = require("./model/user-model");
-const keys = require("./config/keys");
-
+const authRoutes = require("./server/routes/auth-routes");
+const User = require("./server/model/user-model");
+const keys = require("./server/config/keys");
 const cookieParser = require("cookie-parser"); // parse cookie header
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "./config/.env" });
-
-mongoose.connect(process.env.REACT_APP_DB_MONGO_URI, {
+const app = express();
+// Middleware
+app.use(bodyParser.json());
+mongoose.connect(process.env.DB_MONGO_URI, {
   useNewUrlParser: true,
-
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
 
-const app = express();
+
 
 // PORT
 const PORT = process.env.PORT || 5000;
-
-// Middleware
-app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "http://localhost:3000", // allow to server to accept request from different origin
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // allow session cookie from browser to pass through
-  })
-);
-
-/**
- * Router Middleware
- * Router - /user/*
- * Method - *
- */
-// app.use("/user", user);
-app.use("/question", questionRouter);
 
 app.use(
   cookieSession({
@@ -63,16 +37,49 @@ app.use(
 
 // parse cookies
 app.use(cookieParser());
-
 // initalize passport
 app.use(passport.initialize());
 // deserialize cookie from the browser
 app.use(passport.session());
-
 // set up cors to allow us to accept requests from our client
+app.use(
+  cors({
+    origin: process.env.REACT_APP_WEBSITE_URL || "http://localhost:3000", // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // allow session cookie from browser to pass through
+  })
+);
+
+
+
+
 
 // set up routes
+app.use("/question", questionRouter);
+app.get("/profile/:id", async (req, res) => {
+  let user = await User.find({ _id: req.query.id });
+
+  if (user) {
+    return res.status(200).json(user);
+  }
+  res.send({ err: "No User Found" });
+});
 app.use("/auth", authRoutes);
+
+
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+
+
+
+
 
 const authCheck = (req, res, next) => {
   if (!req.user) {
@@ -96,14 +103,7 @@ app.get("/", authCheck, (req, res) => {
     cookies: req.cookies,
   });
 });
-app.get("/profile/:id", async (req, res) => {
-  let user = await User.find({ _id: req.query.id });
 
-  if (user) {
-    return res.status(200).json(user);
-  }
-  res.send({ err: "No User Found" });
-});
 app.listen(PORT, (req, res) => {
   console.log(`Server Started at PORT ${PORT}`);
 });
