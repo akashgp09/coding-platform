@@ -38,7 +38,28 @@ It is written in HTML, CSS and JavaScript and is currently maintained on GitHub 
 ### Prerequisites
 You must have basic knowledge of a version control system like Git & Github. 
 
+### Steps for installation
+1. Install dependencies for server
+ 
+   `npm install`
 
+2. Install dependencies for client
+ 
+   `npm run client-install`
+
+3. Run the client & server with concurrently
+ 
+   `npm run dev`
+
+4. Run the Express server only
+ 
+   `npm run server`
+
+5. Run the React client only
+ 
+   `npm run client`
+
+  Server runs on http://localhost:5000 and client on http://localhost:3000
 
 
 
