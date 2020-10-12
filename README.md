@@ -1,7 +1,7 @@
 
- DSC Competitive Programming Portal              |  
+ DSC Competitive Programming Portal                
 :-------------------------:
-![](https://i.imgur.com/m9tnXMu.png)  |  
+![](https://i.imgur.com/m9tnXMu.png)    
 
 **A web portal which functions as an IDE (integrated development environment) with a primary focus on competitive coding.** 
 
@@ -88,13 +88,30 @@ There is a Heroku post build script so that you do not have to compile your Reac
 
 
 ## Screenshots
-Questions Page                |  Instructions,code & solution page
-:-------------------------:|:-------------------------:
-![](https://i.imgur.com/FzNixhA.png)  |  ![](https://i.imgur.com/nT7ETvh.png)
 
-Editor,Compiler & Default Tests                |  Running against Custom input
-:-------------------------:|:-------------------------:
-![](https://i.imgur.com/PW7TAt0.png)  |  ![](https://i.imgur.com/DKQ1uNZ.png)
+
+Questions Page               
+:-------------------------:
+![](https://i.imgur.com/FzNixhA.png)
+
+-----
+
+ Instructions,code & solution page
+:-------------------------:
+ ![](https://i.imgur.com/nT7ETvh.png)
+ 
+ -----
+ 
+Editor,Compiler & Default Tests            
+:-------------------------:
+![](https://i.imgur.com/PW7TAt0.png)
+
+-----
+
+
+Running against Custom input            
+:-------------------------:
+![](https://i.imgur.com/DKQ1uNZ.png)
 
 
 ## Demo
@@ -106,18 +123,16 @@ Editor,Compiler & Default Tests                |  Running against Custom input
 
 
 
------
+
 
 ## Contributors
-Mentor - [Junaid Rahim](https://github.com/junaidrahim)
+- Mentor - [Junaid Rahim](https://github.com/junaidrahim)
 
-[Arpit Mohapatra](https://github.com/marpit19)
+- [Arpit Mohapatra](https://github.com/marpit19)
 
-[Akash Gupta](https://github.com/akashgp09)
-
-[Ronit Kumar Nayak](https://github.com/RonitNayak25) 
+- [Akash Gupta](https://github.com/akashgp09)
  
-[Anoushka Nandan](https://github.com/anoushkanandan)
+- [Anoushka Nandan](https://github.com/anoushkanandan)
 
 
 
