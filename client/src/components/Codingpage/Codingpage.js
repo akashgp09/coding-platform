@@ -3,6 +3,7 @@ import Instructions from "./Instructions/Instructions";
 import "./Codingpage.css";
 import Solution from "./Solution/Solution";
 import Compiler from "./Compiler/Compiler";
+import { Redirect } from "react-router";
 
 export default class Codingpage extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ export default class Codingpage extends Component {
   };
 
   render() {
-    let count = 0;
+
     if (this.state.question) {
       let instruction = this.state.question[0].instruction;
 
@@ -82,7 +83,10 @@ export default class Codingpage extends Component {
         </>
       );
     } else {
-      return <></>;
+      const { match } = this.props;
+      return <>
+      {match.params.id.length===24?( <></>):(<Redirect to="/404"/>)}   
+      </>;
     }
   }
 }

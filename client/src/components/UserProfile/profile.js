@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Redirect } from "react-router";
 
 import "./profile.css";
 
@@ -51,7 +51,10 @@ export default class App extends Component {
         </>
       );
     } else {
-      return "";
+      const { match } = this.props;
+      return <>
+      {match.params.id.length===24?( <></>):(<Redirect to="/404"/>)}   
+      </>;
     }
   }
 }

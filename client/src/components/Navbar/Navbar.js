@@ -7,7 +7,7 @@ import { IconContext } from "react-icons/lib";
 import { Modal } from "react-bootstrap";
 import {
   GoogleLoginButton,
-  GithubLoginButton,
+  // GithubLoginButton,
 } from "react-social-login-buttons";
 import PropTypes from "prop-types";
 const logo = require("../../Logo/dsckiit_logo_colour.svg");
@@ -60,7 +60,7 @@ export default class Navbar extends Component {
   _handleLogoutClick = () => {
     // Logout using Google passport api
     // Set authenticated state to false in the HomePage component
-    window.open(`/auth/logout`||"http://localhost:5000/auth/logout", "_self");
+    window.open(process.env.NODE_ENV === 'production'?`/auth/logout`:"http://localhost:5000/auth/logout", "_self");
     this.props.handleNotAuthenticated();
   };
   render() {

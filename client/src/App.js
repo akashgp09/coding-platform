@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component} from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Routes from "./routes/routes";
 import "./App.css";
